@@ -96,7 +96,9 @@ Now, let's actually filter by more than one thing at a time, so we can capture b
 
 ```{r}
 
-filter(flightdata, dest == "SRQ", month <= 3)
+filter(flightdata, 
+       dest == "SRQ", 
+       month <= 3)
 #note the comma separating the filtering terms
 
 ```
@@ -181,7 +183,14 @@ Dplyr makes this all easy using the `select()` function. Let's take a look...
 ```{r}
 
 flightdata  %>% 
-  select(carrier, flight, origin, dest, month, day, sched_dep_time, dep_delay)
+  select(carrier, 
+         flight, 
+         origin, 
+         dest, 
+         month,
+         day, 
+         sched_dep_time, 
+         dep_delay)
 
 ```
 
@@ -256,7 +265,7 @@ Saving to Excel is as simple as the following using the `writexl` package...
 
 ```{r}
 
-write_xlsx(sarasota_q1, "data/sarasota_q1_flights.xlsx")
+write_xlsx(sarasota_q1, "data/sarasota_q1_flights.xlsx") %>% 
 
 ```
 
@@ -274,7 +283,7 @@ Set the stock ticker as an object and the start and end dates for the data that 
 
 ```{r}
 
-ticker <- "MSFT"  
+ticker <- "XOM"  
 
 ```
 
@@ -375,7 +384,8 @@ gasprices_weekly
 
 ```{r}
 
-
+gasprices_weekly %>% 
+  filter(price == max(price))
 
 
 ```
@@ -384,7 +394,8 @@ gasprices_weekly
 
 ```{r}
 
-
+gasprices_weekly %>% 
+  filter(price == min(price))
 
 
 ```
@@ -393,9 +404,14 @@ gasprices_weekly
 
 ```{r}
 
+aug_onward <- gasprices_weekly %>% 
+  filter(date >= "2022-08-01")
 
-
+aug_onward %>% 
+  filter(price == max(price))
 
 ```
+
+
 
 Great. Now each of you will try a set of exercises to see how you do with these concepts.

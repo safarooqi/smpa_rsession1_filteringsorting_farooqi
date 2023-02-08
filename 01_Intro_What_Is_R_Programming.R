@@ -44,7 +44,8 @@ c("Billy","Sallie")
 myobject <- 1
 
 #now I can tell R to give me the value of myobject by referring to it by its name
-myobject
+myobject *10
+myobject + 10
 
 #let's try another
 mynames <- c("Billy","Sallie","Tony")

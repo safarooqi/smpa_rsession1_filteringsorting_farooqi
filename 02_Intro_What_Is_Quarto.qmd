@@ -1,7 +1,7 @@
 ---
 title: "My First Quarto Document"
-author: "Aaron Kessler"
-date: "2/7/2023"
+author: "Samiha Farooqi"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
   html:
     self-contained: true
@@ -13,6 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse) 
 library(lubridate)
 library(janitor)
+
+```
+
+```{r}
 
 ```
 
